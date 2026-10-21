@@ -185,6 +185,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--accent);outline:none}
 .summary dd{margin:0}
 .send{display:flex;flex-wrap:wrap;gap:10px}
 .btn-wa{background:#1F8F55;color:#fff}
+.contact-lines a.wa-chip{font-size:15px;width:max-content;margin-top:4px}
 .status{font-size:14px;padding:12px 14px;border-radius:10px;background:var(--surface)}
 .hp{position:absolute;left:-9999px}
 
@@ -318,7 +319,7 @@ dialog#logoBox .close{position:absolute;top:12px;right:14px;width:40px;height:40
         <h2 data-i18n="plan.title"></h2>
         <p data-i18n="plan.lede"></p>
         <div class="contact-lines">
-          <div><small>WhatsApp</small><a href="https://wa.me/212654242024" target="_blank" rel="noopener">+212 654 24 20 24</a></div>
+          <div><small>WhatsApp</small><a class="btn btn-wa wa-chip" href="https://wa.me/212661507283" target="_blank" rel="noopener"><svg width="18" height="18"><use href="#wa"/></svg><span data-i18n="c.wa"></span></a></div>
           <div><small data-i18n="c.email"></small><span>abouhazm99@gmail.com</span></div>
         </div>
       </div>
@@ -414,11 +415,11 @@ dialog#logoBox .close{position:absolute;top:12px;right:14px;width:40px;height:40
   </div>
 </dialog>
 
-<a class="wa-float" href="https://wa.me/212654242024" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#wa"/></svg></a>
+<a class="wa-float" href="https://wa.me/212661507283" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#wa"/></svg></a>
 
 <script>
 (function(){
-const WA = "212654242024";
+const WA = "212661507283";
 const EMAIL = "abouhazm99@gmail.com";
 const IMG = id => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=800&q=70`;
 
@@ -501,7 +502,7 @@ fr:{
  "why.4t":"Toujours joignable","why.4p":"Une réponse sous 24 h et un contact WhatsApp pendant tout le séjour.",
  "plan.eyebrow":"Votre voyage","plan.title":"Dites-nous ce qui vous fait rêver",
  "plan.lede":"Quatre étapes rapides, et nous revenons vers vous avec un itinéraire et un devis personnalisés, sans engagement.",
- "c.email":"E-mail",
+ "c.email":"E-mail","c.wa":"Écrire sur WhatsApp",
  "s.1":"Destinations","s.2":"Dates","s.3":"Style","s.4":"Contact",
  "f1.t":"Où souhaitez-vous aller ?","f1.q":"Choisissez une ou plusieurs villes","f1.err":"Choisissez au moins une ville, ou « Conseillez-moi ».","f1.advise":"Conseillez-moi",
  "f2.t":"Quand et avec qui ?","f2.date":"Date d'arrivée","f2.dur":"Durée du séjour","f2.adults":"Adultes","f2.kids":"Enfants","f2.flex":"Vos dates sont-elles",
@@ -537,7 +538,7 @@ en:{
  "why.4t":"Always reachable","why.4p":"A reply within 24 hours and a WhatsApp contact throughout your stay.",
  "plan.eyebrow":"Your trip","plan.title":"Tell us what you dream of",
  "plan.lede":"Four quick steps, and we come back to you with a personal itinerary and quote, with no obligation.",
- "c.email":"Email",
+ "c.email":"Email","c.wa":"Chat on WhatsApp",
  "s.1":"Destinations","s.2":"Dates","s.3":"Style","s.4":"Contact",
  "f1.t":"Where would you like to go?","f1.q":"Choose one or more cities","f1.err":"Choose at least one city, or “Advise me”.","f1.advise":"Advise me",
  "f2.t":"When, and who's coming?","f2.date":"Arrival date","f2.dur":"Length of stay","f2.adults":"Adults","f2.kids":"Children","f2.flex":"Your dates are",
@@ -573,7 +574,7 @@ ar:{
  "why.4t":"معك دائماً","why.4p":"رد خلال 24 ساعة وتواصل عبر واتساب طوال إقامتك.",
  "plan.eyebrow":"رحلتك","plan.title":"أخبرنا بما تحلم به",
  "plan.lede":"أربع خطوات سريعة، ثم نعود إليك بمسار وعرض سعر مخصص، دون أي التزام.",
- "c.email":"البريد الإلكتروني",
+ "c.email":"البريد الإلكتروني","c.wa":"راسلنا على واتساب",
  "s.1":"الوجهات","s.2":"التواريخ","s.3":"الأسلوب","s.4":"التواصل",
  "f1.t":"إلى أين تود الذهاب؟","f1.q":"اختر مدينة أو أكثر","f1.err":"اختر مدينة واحدة على الأقل، أو «انصحوني».","f1.advise":"انصحوني",
  "f2.t":"متى ومع من؟","f2.date":"تاريخ الوصول","f2.dur":"مدة الإقامة","f2.adults":"البالغون","f2.kids":"الأطفال","f2.flex":"تواريخك",
