@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="600" height="600">
 <rect width="300" height="300" fill="#F5F3EE"/>
-<g transform="translate(60 50) scale(1.5)"><path d="M14 76V24Q14 10 28 10H46M14 43H52M97.9 26.3A26 26 0 1 0 97.9 59.7" fill="none" stroke="#17213F" stroke-width="11"/>
-<path d="M14 76V24Q14 10 28 10H46M14 43H52M97.9 26.3A26 26 0 1 0 97.9 59.7" fill="none" stroke="#D9A13B" stroke-width="1.6" stroke-dasharray="4 3.5"/>
+<g transform="translate(60 50) scale(1.5)"><path d="M14 74.5V10H46M14 43H52M97.9 26.3A26 26 0 1 0 97.9 59.7" fill="none" stroke="#17213F" stroke-width="11" stroke-linejoin="miter"/>
+<path d="M14 74.5V10H46M14 43H52M97.9 26.3A26 26 0 1 0 97.9 59.7" fill="none" stroke="#D9A13B" stroke-width="1.6" stroke-dasharray="4 3.5"/>
 </g>
 <text x="150" y="208" text-anchor="middle" font-family="Bodoni Moda, LM Roman 17, Didot, serif" font-size="27" letter-spacing="5" fill="#17213F">VICTORIA</text>
 <line x1="48" y1="227" x2="88" y2="227" stroke="#D9A13B" stroke-width="1.2"/><line x1="216" y1="227" x2="256" y2="227" stroke="#D9A13B" stroke-width="1.2"/>
