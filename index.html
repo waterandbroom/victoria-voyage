@@ -206,7 +206,7 @@ dialog#logoBox::backdrop{background:rgba(14,19,48,.72);backdrop-filter:blur(4px)
 dialog#logoBox[open]{animation:pop .28s ease}
 @keyframes pop{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
 .big-logo{display:flex;flex-direction:column;align-items:center;gap:6px;direction:ltr}
-.big-logo svg{width:min(60vw,300px);height:auto;color:var(--ink);margin-bottom:22px}
+.big-logo svg{width:min(60vw,300px);height:auto;aspect-ratio:100/78;color:var(--ink);margin-bottom:22px}
 .bw1{font-family:"Bodoni Moda",Georgia,serif;font-size:clamp(30px,7vw,46px);letter-spacing:.22em;padding-left:.22em;line-height:1}
 .bw2{display:flex;align-items:center;gap:16px;font-family:"Bodoni Moda",Georgia,serif;font-size:clamp(15px,3.4vw,21px);letter-spacing:.5em;padding-left:.5em;color:var(--muted);margin-top:8px}
 .bw2 i{display:block;width:clamp(28px,8vw,56px);height:1px;background:var(--saffron)}
@@ -414,7 +414,7 @@ dialog#logoBox .close{position:absolute;top:12px;right:14px;width:40px;height:40
 <dialog id="logoBox" aria-label="Victoria Voyage">
   <button type="button" class="close" aria-label="×">×</button>
   <div class="big-logo">
-    <svg viewBox="6 2 100 78"><use href="#mark"/></svg>
+    <svg><use href="#mark"/></svg>
     <span class="bw1">VICTORIA</span>
     <span class="bw2"><i></i>VOYAGE<i></i></span>
   </div>
