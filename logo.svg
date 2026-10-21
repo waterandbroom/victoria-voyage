@@ -1,10 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 96" width="680" height="192">
-  <rect width="340" height="96" fill="#F5F3EE"/>
-  <g transform="translate(16 16)">
-    <path d="M4 58 22 7h38M22 7l18 51M40 7v51" fill="none" stroke="#17213F" stroke-width="4.2" stroke-linejoin="miter" stroke-linecap="square"/>
-    <path d="M12 36h44" stroke="#C98A1E" stroke-width="4.2"/>
-  </g>
-  <line x1="92" y1="20" x2="92" y2="76" stroke="#D6D1C4" stroke-width="1"/>
-  <text x="108" y="48" font-family="Bodoni Moda, Didot, Georgia, serif" font-size="30" textLength="214" lengthAdjust="spacing" fill="#17213F">VICTORIA</text>
-  <text x="109" y="75" font-family="Bodoni Moda, Didot, Georgia, serif" font-size="24" textLength="208" lengthAdjust="spacing" fill="#5C6178">VOYAGE</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 100" width="680" height="200">
+<rect width="340" height="100" fill="#F5F3EE"/>
+<g transform="translate(16 23.12) scale(.84)"><path d="M4 58 22 7h38M22 7l18 51M40 7v51" fill="none" stroke="#17213F" stroke-width="4.2" stroke-linecap="square"/>
+<path d="M12 36h44" stroke="#C98A1E" stroke-width="4.2"/></g>
+<line x1="90" y1="22" x2="90" y2="78" stroke="#D6D1C4"/>
+<text x="214" y="50" text-anchor="middle" font-family="Bodoni Moda, Latin Modern Roman, Didot, serif" font-size="30" letter-spacing="7" fill="#17213F">VICTORIA</text>
+<text x="214" y="78" text-anchor="middle" font-family="Bodoni Moda, Latin Modern Roman, Didot, serif" font-size="21" letter-spacing="9" fill="#5C6178">VOYAGE</text>
 </svg>
