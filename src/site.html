@@ -1,0 +1,727 @@
+<title>Victoria Voyage</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Victoria Voyage — agence de voyage au Maroc : Marrakech, Fès, Chefchaouen, Sahara, Essaouira, Casablanca, Tanger.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 56'%3E%3Crect width='48' height='56' rx='8' fill='%2317213F'/%3E%3Cpath d='M12 50V30a12 12 0 1 1 24 0v20' fill='none' stroke='%23F5F3EE' stroke-width='3'/%3E%3Ccircle cx='24' cy='27' r='4.5' fill='%23D99A2B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Reem+Kufi:wght@400..600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap">
+<style>
+/* Layout: lime-washed medina wall, indigo ink, horseshoe-arch frames as the one recurring motif. */
+:root{
+  --bg:#F5F3EE;          /* lime plaster */
+  --surface:#ECE8DF;     /* shaded plaster */
+  --ink:#17213F;         /* Tuareg indigo */
+  --muted:#5C6178;
+  --line:#D6D1C4;
+  --accent:#2C4296;      /* Majorelle, deepened */
+  --saffron:#C98A1E;
+  --on-accent:#F5F3EE;
+  --display:"Bodoni Moda", "Didot", Georgia, serif;
+  --body:"Figtree", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --radius:14px;
+  --wrap:1180px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1330;--surface:#161C3F;--ink:#ECE7DC;--muted:#A3A7BD;--line:#2A3159;
+  --accent:#8EA2F0;--saffron:#E2B04F;--on-accent:#0E1330;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1330;--surface:#161C3F;--ink:#ECE7DC;--muted:#A3A7BD;--line:#2A3159;
+  --accent:#8EA2F0;--saffron:#E2B04F;--on-accent:#0E1330;color-scheme:dark}
+html[lang="ar"]{
+  --display:"Reem Kufi", "IBM Plex Sans Arabic", Tahoma, sans-serif;
+  --body:"IBM Plex Sans Arabic", Tahoma, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.08;text-wrap:balance;margin:0}
+html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3{line-height:1.35}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+html[lang="ar"] .eyebrow{font-family:var(--body);letter-spacing:0;font-size:13px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* Header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand svg{width:30px;height:35px;color:var(--ink);flex:none}
+.brand .w1{font-family:"Bodoni Moda",Georgia,serif;font-size:19px;letter-spacing:.2em;line-height:1}
+.brand .w2{font-family:var(--mono);font-size:9.5px;letter-spacing:.52em;color:var(--muted);margin-top:5px;display:block}
+nav.links{display:flex;gap:28px;font-size:14px}
+nav.links a{text-decoration:none;color:var(--muted)}
+nav.links a:hover{color:var(--ink)}
+.right{display:flex;align-items:center;gap:14px}
+.langs{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px}
+.langs button{border:0;background:none;color:var(--muted);font:500 12px/1 var(--mono);padding:7px 10px;border-radius:999px;cursor:pointer;letter-spacing:.06em}
+.langs button[data-l="ar"]{font-family:"IBM Plex Sans Arabic",sans-serif;font-size:13px;letter-spacing:0}
+.langs button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 14px/1 var(--body);padding:14px 22px;border-radius:999px;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform .2s ease,background .2s ease}
+.btn-primary{background:var(--accent);color:var(--on-accent)}
+.btn-primary:hover{transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:transparent}
+.btn-ghost:hover{border-color:var(--ink)}
+.top .btn{padding:11px 18px}
+@media (max-width:900px){nav.links{display:none}}
+@media (max-width:520px){.top .btn{display:none}.brand .w1{font-size:16px}}
+
+/* Hero */
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:end;padding-block:64px 72px}
+.hero h1{font-size:clamp(44px,6.4vw,88px);letter-spacing:-.015em}
+.hero h1 em{font-style:italic;color:var(--accent)}
+html[lang="ar"] .hero h1{font-size:clamp(38px,5.2vw,70px)}
+html[lang="ar"] .hero h1 em{font-style:normal}
+.hero .lede{font-size:18px;color:var(--muted);max-width:46ch;margin-top:24px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero .facts{display:flex;flex-wrap:wrap;gap:28px;margin-top:44px;padding-top:22px;border-top:1px solid var(--line)}
+.hero .facts b{display:block;font-family:var(--display);font-weight:500;font-size:28px;line-height:1.1}
+.hero .facts span{font-size:13px;color:var(--muted)}
+.arch{border-radius:999px 999px var(--radius) var(--radius);overflow:hidden;background:var(--surface);position:relative}
+.arch img{display:block;width:100%;height:100%;object-fit:cover}
+.hero .arch{aspect-ratio:4/5;max-height:620px;max-width:100%}
+.hero figure{margin:0;position:relative}
+.hero figcaption{position:absolute;inset-inline-start:-18px;bottom:36px;background:var(--bg);border:1px solid var(--line);padding:12px 16px;border-radius:10px;font-family:var(--mono);font-size:12px;line-height:1.5;color:var(--muted)}
+.hero figcaption b{color:var(--ink);font-weight:500}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:36px;padding-block:36px 48px}.hero .arch{aspect-ratio:1/1;max-height:440px}.hero figcaption{inset-inline-start:12px}}
+
+/* Sections */
+section.block{padding-block:88px;border-top:1px solid var(--line)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
+.head h2{font-size:clamp(32px,4vw,52px);margin-top:12px}
+.head p{color:var(--muted);max-width:44ch}
+@media (max-width:600px){section.block{padding-block:56px}}
+
+/* Cities */
+.cities{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:36px 24px}
+.city{display:flex;flex-direction:column;gap:14px;min-width:0}
+.city .arch{aspect-ratio:3/4;max-width:100%}
+.city .arch img{transition:transform .8s ease}
+.city:hover .arch img{transform:scale(1.04)}
+.city h3{font-size:26px}
+.city p{color:var(--muted);font-size:14.5px}
+.city .meta{display:flex;justify-content:space-between;gap:8px;font-family:var(--mono);font-size:11.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px;font-variant-numeric:tabular-nums}
+.city .meta span:last-child{color:var(--saffron)}
+@media (max-width:980px){.cities{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.cities{gap:28px 14px}.city h3{font-size:21px}.city p{font-size:13.5px}.city .meta{flex-direction:column}}
+
+/* Trips */
+.trips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.trip{display:grid;grid-template-columns:180px minmax(0,1fr);gap:24px;padding:20px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg)}
+.trip .arch{aspect-ratio:3/4;max-width:100%}
+.trip .body{display:flex;flex-direction:column;gap:10px;min-width:0}
+.trip .days{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--saffron);text-transform:uppercase}
+.trip h3{font-size:26px}
+.trip .route{font-size:14px;color:var(--muted)}
+.trip .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;padding-top:14px;border-top:1px solid var(--line)}
+.trip .price small{display:block;font-size:12px;color:var(--muted)}
+.trip .price b{font-family:var(--display);font-weight:500;font-size:24px;font-variant-numeric:tabular-nums}
+.trip .foot button{background:none;border:0;padding:0;color:var(--accent);font:600 14px var(--body);cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.note{margin-top:20px;font-size:13px;color:var(--muted)}
+@media (max-width:980px){.trips{grid-template-columns:1fr}}
+@media (max-width:520px){.trip{grid-template-columns:110px minmax(0,1fr);gap:16px;padding:14px}.trip h3{font-size:21px}}
+
+/* Why */
+.why{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px}
+.why div{display:flex;flex-direction:column;gap:10px}
+.why svg{width:30px;height:30px;color:var(--accent)}
+.why h3{font-size:21px}
+.why p{color:var(--muted);font-size:14.5px}
+@media (max-width:900px){.why{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.why{grid-template-columns:1fr}}
+
+/* Planner */
+.planner-sec{background:var(--surface)}
+.planner{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.planner .intro h2{font-size:clamp(32px,4vw,52px);margin-top:12px}
+.planner .intro p{color:var(--muted);margin-top:18px;max-width:40ch}
+.contact-lines{margin-top:32px;display:flex;flex-direction:column;gap:12px}
+.contact-lines div{display:flex;flex-direction:column;gap:2px}
+.contact-lines small{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.contact-lines a,.contact-lines span{font-size:18px;text-decoration:none;font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate}
+@media (max-width:900px){.planner{grid-template-columns:1fr;gap:36px}}
+
+form.card{background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:32px;min-width:0}
+@media (max-width:520px){form.card{padding:20px}}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:28px;list-style:none;padding:0}
+.steps li{font-size:12.5px;color:var(--muted);padding-top:10px;border-top:2px solid var(--line)}
+.steps li span{font-family:var(--mono);margin-inline-end:6px}
+.steps li.on{color:var(--ink);border-color:var(--accent)}
+.steps li.done{border-color:var(--ink)}
+@media (max-width:520px){.steps li{font-size:0}.steps li span{font-size:12px}}
+fieldset{border:0;padding:0;margin:0;display:flex;flex-direction:column;gap:22px}
+legend{font-family:var(--display);font-size:28px;margin-bottom:6px;padding:0}
+.q{display:flex;flex-direction:column;gap:10px}
+.q > label,.q > .lbl{font-size:13px;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer;margin:0}
+.chip span{display:inline-block;padding:9px 15px;border:1px solid var(--line);border-radius:999px;font-size:14px;transition:background .15s,border-color .15s}
+.chip input:checked + span{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip input:focus-visible + span{outline:2px solid var(--accent);outline-offset:2px}
+.chip:hover span{border-color:var(--ink)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media (max-width:520px){.grid2{grid-template-columns:1fr}}
+input[type=text],input[type=email],input[type=tel],input[type=date],select,textarea{width:100%;font:16px var(--body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+textarea{min-height:96px;resize:vertical}
+input:focus,select:focus,textarea:focus{border-color:var(--accent);outline:none}
+.stepper{display:flex;align-items:center;gap:0;border:1px solid var(--line);border-radius:10px;width:max-content}
+.stepper button{width:44px;height:44px;border:0;background:none;font-size:20px;color:var(--ink);cursor:pointer}
+.stepper output{min-width:36px;text-align:center;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.nav-row{display:flex;justify-content:space-between;gap:12px;margin-top:30px;flex-wrap:wrap}
+.err{color:#B3261E;font-size:13px}
+:root[data-theme="dark"] .err{color:#FFB4AB}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .err{color:#FFB4AB}}
+.summary{border:1px dashed var(--line);border-radius:12px;padding:16px;font-size:14px;display:grid;gap:6px}
+.summary div{display:flex;gap:10px}
+.summary dt{color:var(--muted);min-width:110px;margin:0}
+.summary dd{margin:0}
+.send{display:flex;flex-wrap:wrap;gap:10px}
+.btn-wa{background:#1F8F55;color:#fff}
+.status{font-size:14px;padding:12px 14px;border-radius:10px;background:var(--surface)}
+.hp{position:absolute;left:-9999px}
+
+/* Footer */
+footer{padding-block:48px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+footer p{color:var(--muted);font-size:13px}
+.wa-float{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));inset-inline-end:calc(20px + env(safe-area-inset-right,0px));width:56px;height:56px;border-radius:50%;background:#1F8F55;color:#fff;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.18);z-index:30}
+.wa-float svg{width:28px;height:28px}
+</style>
+<!--/head-->
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 48 56">
+    <path d="M12 54V32a14 14 0 1 1 24 0v22" fill="none" stroke="currentColor" stroke-width="2.4"/>
+    <circle cx="24" cy="25" r="4.6" fill="var(--saffron)"/>
+    <path d="M12 46c5-5 10-6 14-2.5S33 47 36 43" fill="none" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M4 54h40" stroke="currentColor" stroke-width="2.4"/>
+  </symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Victoria Voyage">
+      <svg><use href="#mark"/></svg>
+      <span><span class="w1">VICTORIA</span><span class="w2">VOYAGE</span></span>
+    </a>
+    <nav class="links">
+      <a href="#destinations" data-i18n="nav.dest"></a>
+      <a href="#voyages" data-i18n="nav.trips"></a>
+      <a href="#pourquoi" data-i18n="nav.why"></a>
+      <a href="#planifier" data-i18n="nav.contact"></a>
+    </nav>
+    <div class="right">
+      <div class="langs" role="group" aria-label="Language">
+        <button type="button" data-l="ar" lang="ar">ع</button>
+        <button type="button" data-l="fr">FR</button>
+        <button type="button" data-l="en">EN</button>
+      </div>
+      <a class="btn btn-primary" href="#planifier" data-i18n="cta.plan"></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow" data-i18n="hero.eyebrow"></p>
+        <h1 style="margin-top:18px" data-i18n-html="hero.title"></h1>
+        <p class="lede" data-i18n="hero.lede"></p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="#planifier" data-i18n="cta.plan"></a>
+          <a class="btn btn-ghost" href="#destinations" data-i18n="cta.explore"></a>
+        </div>
+        <div class="facts">
+          <div><b>8</b><span data-i18n="facts.cities"></span></div>
+          <div><b>3</b><span data-i18n="facts.langs"></span></div>
+          <div><b>24 h</b><span data-i18n="facts.reply"></span></div>
+        </div>
+      </div>
+      <figure>
+        <div class="arch"><img src="https://images.unsplash.com/photo-1597212618440-806262de4f6b?auto=format&fit=crop&w=1100&q=70" alt="" data-i18n-alt="hero.alt"></div>
+        <figcaption><b>Koutoubia, Marrakech</b><br>31.62° N · 7.99° W</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block" id="destinations">
+    <div class="wrap">
+      <div class="head">
+        <div><p class="eyebrow" data-i18n="dest.eyebrow"></p><h2 data-i18n="dest.title"></h2></div>
+        <p data-i18n="dest.lede"></p>
+      </div>
+      <div class="cities" id="cities"></div>
+    </div>
+  </section>
+
+  <section class="block" id="voyages">
+    <div class="wrap">
+      <div class="head">
+        <div><p class="eyebrow" data-i18n="trips.eyebrow"></p><h2 data-i18n="trips.title"></h2></div>
+        <p data-i18n="trips.lede"></p>
+      </div>
+      <div class="trips" id="trips"></div>
+      <p class="note" data-i18n="trips.note"></p>
+    </div>
+  </section>
+
+  <section class="block" id="pourquoi">
+    <div class="wrap">
+      <div class="head">
+        <div><p class="eyebrow" data-i18n="why.eyebrow"></p><h2 data-i18n="why.title"></h2></div>
+      </div>
+      <div class="why">
+        <div>
+          <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 26V13a11 11 0 0 1 22 0v13"/><path d="M4 26h22"/><path d="M10 26v-8a5 5 0 0 1 10 0v8"/></svg>
+          <h3 data-i18n="why.1t"></h3><p data-i18n="why.1p"></p>
+        </div>
+        <div>
+          <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="15" cy="15" r="11"/><path d="M15 4v22M4 15h22M7 7l16 16M23 7 7 23"/></svg>
+          <h3 data-i18n="why.2t"></h3><p data-i18n="why.2p"></p>
+        </div>
+        <div>
+          <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20h24l-2-7H5z"/><circle cx="9" cy="22" r="2.5"/><circle cx="21" cy="22" r="2.5"/><path d="M8 13l2-5h10l2 5"/></svg>
+          <h3 data-i18n="why.3t"></h3><p data-i18n="why.3p"></p>
+        </div>
+        <div>
+          <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 6h20v14H12l-6 5v-5H5z"/><path d="M10 12h10M10 15h6"/></svg>
+          <h3 data-i18n="why.4t"></h3><p data-i18n="why.4p"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block planner-sec" id="planifier">
+    <div class="wrap planner">
+      <div class="intro">
+        <p class="eyebrow" data-i18n="plan.eyebrow"></p>
+        <h2 data-i18n="plan.title"></h2>
+        <p data-i18n="plan.lede"></p>
+        <div class="contact-lines">
+          <div><small>WhatsApp</small><a href="https://wa.me/212654242024" target="_blank" rel="noopener">+212 654 24 20 24</a></div>
+          <div><small data-i18n="c.email"></small><span>abouhazm99@gmail.com</span></div>
+        </div>
+      </div>
+
+      <form class="card" id="planner" novalidate>
+        <ol class="steps" id="steps">
+          <li><span>1</span><b data-i18n="s.1"></b></li>
+          <li><span>2</span><b data-i18n="s.2"></b></li>
+          <li><span>3</span><b data-i18n="s.3"></b></li>
+          <li><span>4</span><b data-i18n="s.4"></b></li>
+        </ol>
+
+        <fieldset data-step="1">
+          <legend data-i18n="f1.t"></legend>
+          <div class="q"><span class="lbl" data-i18n="f1.q"></span><div class="chips" id="cityChips"></div></div>
+          <p class="err" id="err1" hidden data-i18n="f1.err"></p>
+        </fieldset>
+
+        <fieldset data-step="2" hidden>
+          <legend data-i18n="f2.t"></legend>
+          <div class="grid2">
+            <div class="q"><label for="arrival" data-i18n="f2.date"></label><input type="date" id="arrival" name="arrival"></div>
+            <div class="q"><label for="duration" data-i18n="f2.dur"></label>
+              <select id="duration" name="duration">
+                <option value="d1" data-i18n="dur.d1"></option>
+                <option value="d2" data-i18n="dur.d2" selected></option>
+                <option value="d3" data-i18n="dur.d3"></option>
+                <option value="d4" data-i18n="dur.d4"></option>
+              </select></div>
+          </div>
+          <div class="grid2">
+            <div class="q"><span class="lbl" data-i18n="f2.adults"></span>
+              <div class="stepper" data-field="adults"><button type="button" data-d="-1" aria-label="−">−</button><output id="adults">2</output><button type="button" data-d="1" aria-label="+">+</button></div></div>
+            <div class="q"><span class="lbl" data-i18n="f2.kids"></span>
+              <div class="stepper" data-field="kids"><button type="button" data-d="-1" aria-label="−">−</button><output id="kids">0</output><button type="button" data-d="1" aria-label="+">+</button></div></div>
+          </div>
+          <div class="q"><span class="lbl" data-i18n="f2.flex"></span>
+            <div class="chips" id="flexChips"></div></div>
+        </fieldset>
+
+        <fieldset data-step="3" hidden>
+          <legend data-i18n="f3.t"></legend>
+          <div class="q"><span class="lbl" data-i18n="f3.budget"></span><div class="chips" id="budgetChips"></div></div>
+          <div class="q"><span class="lbl" data-i18n="f3.stay"></span><div class="chips" id="stayChips"></div></div>
+          <div class="q"><span class="lbl" data-i18n="f3.int"></span><div class="chips" id="intChips"></div></div>
+        </fieldset>
+
+        <fieldset data-step="4" hidden>
+          <legend data-i18n="f4.t"></legend>
+          <div class="grid2">
+            <div class="q"><label for="fname" data-i18n="f4.name"></label><input type="text" id="fname" name="name" autocomplete="name"></div>
+            <div class="q"><label for="country" data-i18n="f4.country"></label><input type="text" id="country" name="country" autocomplete="country-name"></div>
+            <div class="q"><label for="phone" data-i18n="f4.phone"></label><input type="tel" id="phone" name="phone" autocomplete="tel" dir="ltr"></div>
+            <div class="q"><label for="email" data-i18n="f4.email"></label><input type="email" id="email" name="email" autocomplete="email" dir="ltr"></div>
+          </div>
+          <div class="q"><label for="msg" data-i18n="f4.msg"></label><textarea id="msg" name="message"></textarea></div>
+          <input class="hp" type="text" id="hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <p class="err" id="err4" hidden data-i18n="f4.err"></p>
+          <div class="q"><span class="lbl" data-i18n="f4.sum"></span><dl class="summary" id="summary"></dl></div>
+          <div class="send">
+            <a class="btn btn-wa" id="sendWa" href="#" target="_blank" rel="noopener"><svg width="18" height="18"><use href="#wa"/></svg><span data-i18n="f4.wa"></span></a>
+            <button type="submit" class="btn btn-ghost" id="sendMail" data-i18n="f4.mail"></button>
+          </div>
+          <p class="status" id="status" hidden></p>
+        </fieldset>
+
+        <div class="nav-row">
+          <button type="button" class="btn btn-ghost" id="prev" data-i18n="nav.prev"></button>
+          <button type="button" class="btn btn-primary" id="next" data-i18n="nav.next"></button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Victoria Voyage">
+      <svg><use href="#mark"/></svg>
+      <span><span class="w1">VICTORIA</span><span class="w2">VOYAGE</span></span>
+    </a>
+    <p>© <span id="yr"></span> Victoria Voyage · <span data-i18n="foot"></span></p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/212654242024" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#wa"/></svg></a>
+
+<script>
+(function(){
+const WA = "212654242024";
+const EMAIL = "abouhazm99@gmail.com";
+const IMG = id => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=800&q=70`;
+
+const CITIES = [
+  {k:"marrakech", img:"photo-1762380371792-9a94903663ca", geo:"31.63° N · 7.99° W",
+   n:{fr:"Marrakech",en:"Marrakech",ar:"مراكش"},
+   d:{fr:"La ville ocre : souks, riads et jardins au pied de l'Atlas.",en:"The ochre city: souks, riads and gardens beneath the Atlas.",ar:"المدينة الحمراء: أسواق ورياضات وحدائق عند سفوح الأطلس."},
+   s:{fr:"Oct – Avr",en:"Oct – Apr",ar:"أكتوبر – أبريل"}},
+  {k:"fes", img:"photo-1568241360857-e23e825c4e08", geo:"34.03° N · 5.00° W",
+   n:{fr:"Fès",en:"Fez",ar:"فاس"},
+   d:{fr:"La plus ancienne médina du monde arabe, ses tanneries et ses médersas.",en:"The oldest medina of the Arab world, its tanneries and madrasas.",ar:"أعرق مدينة عتيقة، بدباغاتها ومدارسها العلمية."},
+   s:{fr:"Mar – Mai · Sep – Nov",en:"Mar – May · Sep – Nov",ar:"مارس – ماي · شتنبر – نونبر"}},
+  {k:"chefchaouen", img:"photo-1569383746724-6f1b882b8f46", geo:"35.17° N · 5.27° W",
+   n:{fr:"Chefchaouen",en:"Chefchaouen",ar:"شفشاون"},
+   d:{fr:"La perle bleue du Rif, entre ruelles indigo et sentiers de montagne.",en:"The blue pearl of the Rif, indigo lanes and mountain trails.",ar:"الجوهرة الزرقاء في الريف، أزقة زرقاء ومسارات جبلية."},
+   s:{fr:"Avr – Oct",en:"Apr – Oct",ar:"أبريل – أكتوبر"}},
+  {k:"merzouga", img:"photo-1489493585363-d69421e0edd3", geo:"31.10° N · 4.01° W",
+   n:{fr:"Merzouga · Sahara",en:"Merzouga · Sahara",ar:"مرزوكة · الصحراء"},
+   d:{fr:"Les dunes de l'Erg Chebbi, une nuit sous les étoiles en bivouac.",en:"The Erg Chebbi dunes and a night under the stars in a desert camp.",ar:"كثبان عرق الشبي وليلة تحت النجوم في مخيم صحراوي."},
+   s:{fr:"Oct – Avr",en:"Oct – Apr",ar:"أكتوبر – أبريل"}},
+  {k:"essaouira", img:"photo-1565985482571-03a42ea59d80", geo:"31.51° N · 9.77° W",
+   n:{fr:"Essaouira",en:"Essaouira",ar:"الصويرة"},
+   d:{fr:"Remparts face à l'Atlantique, port de pêche et vent des alizés.",en:"Ramparts on the Atlantic, a fishing port and steady trade winds.",ar:"أسوار على المحيط الأطلسي، ميناء صيد ورياح منعشة."},
+   s:{fr:"Toute l'année",en:"All year",ar:"طوال السنة"}},
+  {k:"casablanca", img:"photo-1706203644187-a719449587bb", geo:"33.57° N · 7.59° W",
+   n:{fr:"Casablanca",en:"Casablanca",ar:"الدار البيضاء"},
+   d:{fr:"La mosquée Hassan II sur l'océan et l'architecture Art déco.",en:"The Hassan II Mosque over the ocean and Art Deco boulevards.",ar:"مسجد الحسن الثاني فوق المحيط وعمارة الآرت ديكو."},
+   s:{fr:"Toute l'année",en:"All year",ar:"طوال السنة"}},
+  {k:"aitbenhaddou", img:"photo-1680880482590-0f4b9b5258c7", geo:"31.05° N · 7.13° W",
+   n:{fr:"Aït Benhaddou",en:"Aït Benhaddou",ar:"آيت بن حدو"},
+   d:{fr:"Ksar de terre classé à l'UNESCO, porte d'entrée vers Ouarzazate.",en:"A UNESCO-listed earthen ksar on the road to Ouarzazate.",ar:"قصر طيني مصنف تراثاً عالمياً، بوابة ورزازات."},
+   s:{fr:"Mar – Mai · Oct – Nov",en:"Mar – May · Oct – Nov",ar:"مارس – ماي · أكتوبر – نونبر"}},
+  {k:"tanger", img:"photo-1533501747004-381b96042e88", geo:"35.76° N · 5.83° W",
+   n:{fr:"Tanger",en:"Tangier",ar:"طنجة"},
+   d:{fr:"Entre Méditerranée et Atlantique, la ville des peintres et des écrivains.",en:"Between two seas, the city of painters and writers.",ar:"بين البحرين، مدينة الرسامين والكتّاب."},
+   s:{fr:"Avr – Oct",en:"Apr – Oct",ar:"أبريل – أكتوبر"}}
+];
+
+const TRIPS = [
+  {k:"imperial", img:"photo-1549140600-78c9b8275e9d", days:7, price:"6 900",
+   n:{fr:"Les villes impériales",en:"The imperial cities",ar:"المدن الإمبراطورية"},
+   r:{fr:"Casablanca · Rabat · Meknès · Fès · Marrakech",en:"Casablanca · Rabat · Meknes · Fez · Marrakech",ar:"الدار البيضاء · الرباط · مكناس · فاس · مراكش"}},
+  {k:"sahara", img:"photo-1553796661-17b7fa359f49", days:3, price:"2 400",
+   n:{fr:"Nuits au Sahara",en:"Sahara nights",ar:"ليالي الصحراء"},
+   r:{fr:"Marrakech · Aït Benhaddou · Dadès · Merzouga",en:"Marrakech · Aït Benhaddou · Dades · Merzouga",ar:"مراكش · آيت بن حدو · دادس · مرزوكة"}},
+  {k:"north", img:"flagged/photo-1555169048-3c4845cfcf1c", days:4, price:"3 200",
+   n:{fr:"Le Nord bleu",en:"The blue north",ar:"الشمال الأزرق"},
+   r:{fr:"Tanger · Chefchaouen · Akchour",en:"Tangier · Chefchaouen · Akchour",ar:"طنجة · شفشاون · أقشور"}},
+  {k:"coast", img:"photo-1743963790208-07ce117cdfc6", days:5, price:"3 900",
+   n:{fr:"La côte atlantique",en:"The Atlantic coast",ar:"الساحل الأطلسي"},
+   r:{fr:"Casablanca · El Jadida · Oualidia · Essaouira",en:"Casablanca · El Jadida · Oualidia · Essaouira",ar:"الدار البيضاء · الجديدة · الواليدية · الصويرة"}}
+];
+
+const OPT = {
+  flex:{yes:{fr:"Dates flexibles",en:"Flexible dates",ar:"تواريخ مرنة"},no:{fr:"Dates fixes",en:"Fixed dates",ar:"تواريخ محددة"}},
+  budget:{eco:{fr:"Essentiel",en:"Essential",ar:"اقتصادي"},mid:{fr:"Confort",en:"Comfort",ar:"مريح"},lux:{fr:"Prestige",en:"Prestige",ar:"فاخر"}},
+  stay:{riad:{fr:"Riad",en:"Riad",ar:"رياض"},hotel:{fr:"Hôtel",en:"Hotel",ar:"فندق"},camp:{fr:"Camp dans le désert",en:"Desert camp",ar:"مخيم صحراوي"},any:{fr:"Peu importe",en:"No preference",ar:"لا يهم"}},
+  int:{heritage:{fr:"Patrimoine",en:"Heritage",ar:"التراث"},desert:{fr:"Désert",en:"Desert",ar:"الصحراء"},food:{fr:"Gastronomie",en:"Food",ar:"المطبخ المغربي"},beach:{fr:"Plage & surf",en:"Beach & surf",ar:"الشاطئ وركوب الأمواج"},hike:{fr:"Randonnée",en:"Hiking",ar:"المشي الجبلي"},crafts:{fr:"Artisanat & souks",en:"Crafts & souks",ar:"الصناعة التقليدية والأسواق"},photo:{fr:"Photographie",en:"Photography",ar:"التصوير"}}
+};
+
+const T = {
+fr:{
+ "nav.dest":"Destinations","nav.trips":"Voyages","nav.why":"Notre approche","nav.contact":"Planifier",
+ "cta.plan":"Planifier mon voyage","cta.explore":"Voir les destinations",
+ "hero.eyebrow":"Agence de voyage · Maroc",
+ "hero.title":"Le Maroc,<br><em>ville après ville.</em>",
+ "hero.lede":"De Tanger au Sahara, nous composons des voyages sur mesure à travers les plus belles villes du Royaume. Vous choisissez le rythme, nous nous occupons du reste.",
+ "hero.alt":"Le minaret de la Koutoubia à Marrakech, l'Atlas enneigé en arrière-plan",
+ "facts.cities":"villes à découvrir","facts.langs":"langues parlées","facts.reply":"pour une réponse",
+ "dest.eyebrow":"Destinations","dest.title":"Huit villes, huit Maroc",
+ "dest.lede":"Chaque ville a sa couleur, sa lumière et sa saison. Combinez-les librement dans un même voyage.",
+ "trips.eyebrow":"Voyages signature","trips.title":"Des itinéraires prêts à partir",
+ "trips.lede":"Une base solide que nous adaptons à vos dates, votre budget et vos envies.",
+ "trips.note":"Prix indicatifs par personne, base deux personnes, hors vols internationaux.",
+ "trip.days":"jours","trip.from":"À partir de","trip.ask":"Demander ce voyage",
+ "why.eyebrow":"Notre approche","why.title":"Simple, local et attentif",
+ "why.1t":"Riads choisis","why.1p":"Des maisons d'hôtes visitées et sélectionnées pour leur calme et leur accueil.",
+ "why.2t":"Sur mesure","why.2p":"Aucun circuit imposé : chaque itinéraire est construit autour de vous.",
+ "why.3t":"Transport privé","why.3p":"Chauffeur et véhicule climatisé pour toute la durée du voyage.",
+ "why.4t":"Toujours joignable","why.4p":"Une réponse sous 24 h et un contact WhatsApp pendant tout le séjour.",
+ "plan.eyebrow":"Votre voyage","plan.title":"Dites-nous ce qui vous fait rêver",
+ "plan.lede":"Quatre étapes rapides, et nous revenons vers vous avec un itinéraire et un devis personnalisés, sans engagement.",
+ "c.email":"E-mail",
+ "s.1":"Destinations","s.2":"Dates","s.3":"Style","s.4":"Contact",
+ "f1.t":"Où souhaitez-vous aller ?","f1.q":"Choisissez une ou plusieurs villes","f1.err":"Choisissez au moins une ville, ou « Conseillez-moi ».","f1.advise":"Conseillez-moi",
+ "f2.t":"Quand et avec qui ?","f2.date":"Date d'arrivée","f2.dur":"Durée du séjour","f2.adults":"Adultes","f2.kids":"Enfants","f2.flex":"Vos dates sont-elles",
+ "dur.d1":"3 à 4 jours","dur.d2":"5 à 7 jours","dur.d3":"8 à 10 jours","dur.d4":"Plus de 10 jours",
+ "f3.t":"Votre style de voyage","f3.budget":"Budget","f3.stay":"Hébergement","f3.int":"Centres d'intérêt",
+ "f4.t":"Vos coordonnées","f4.name":"Nom complet","f4.country":"Pays de résidence","f4.phone":"Téléphone / WhatsApp","f4.email":"E-mail","f4.msg":"Un mot de plus ? (occasion, régime, mobilité…)",
+ "f4.err":"Indiquez votre nom, et un téléphone ou un e-mail.","f4.sum":"Récapitulatif","f4.wa":"Envoyer sur WhatsApp","f4.mail":"Envoyer par e-mail",
+ "sum.cities":"Villes","sum.when":"Arrivée","sum.dur":"Durée","sum.people":"Voyageurs","sum.budget":"Budget","sum.stay":"Hébergement","sum.int":"Intérêts","sum.none":"—",
+ "ppl":(a,k)=>`${a} adulte${a>1?"s":""}${k?`, ${k} enfant${k>1?"s":""}`:""}`,
+ "st.sending":"Envoi en cours…","st.ok":"Merci ! Votre demande est bien envoyée. Nous vous répondons sous 24 h.","st.fail":"L'envoi par e-mail n'a pas abouti. Utilisez WhatsApp ou écrivez-nous à "+EMAIL+".",
+ "nav.prev":"Retour","nav.next":"Continuer",
+ "wa.hello":"Bonjour Victoria Voyage, je souhaite organiser un voyage au Maroc.",
+ "foot":"Voyages sur mesure au Maroc"
+},
+en:{
+ "nav.dest":"Destinations","nav.trips":"Trips","nav.why":"Our approach","nav.contact":"Plan",
+ "cta.plan":"Plan my trip","cta.explore":"See destinations",
+ "hero.eyebrow":"Travel agency · Morocco",
+ "hero.title":"Morocco,<br><em>one city at a time.</em>",
+ "hero.lede":"From Tangier to the Sahara, we design tailor-made journeys through the Kingdom's most beautiful cities. You set the pace, we take care of the rest.",
+ "hero.alt":"The Koutoubia minaret in Marrakech with the snow-capped Atlas behind",
+ "facts.cities":"cities to explore","facts.langs":"languages spoken","facts.reply":"to hear back",
+ "dest.eyebrow":"Destinations","dest.title":"Eight cities, eight Moroccos",
+ "dest.lede":"Every city has its own colour, light and season. Combine them freely in one journey.",
+ "trips.eyebrow":"Signature trips","trips.title":"Itineraries ready to go",
+ "trips.lede":"A solid starting point that we adapt to your dates, budget and wishes.",
+ "trips.note":"Indicative prices per person, based on two travellers, excluding international flights.",
+ "trip.days":"days","trip.from":"From","trip.ask":"Ask about this trip",
+ "why.eyebrow":"Our approach","why.title":"Simple, local and attentive",
+ "why.1t":"Hand-picked riads","why.1p":"Guesthouses we have visited and chosen for their calm and hospitality.",
+ "why.2t":"Tailor-made","why.2p":"No fixed tours: every itinerary is built around you.",
+ "why.3t":"Private transport","why.3p":"A driver and air-conditioned vehicle for the whole trip.",
+ "why.4t":"Always reachable","why.4p":"A reply within 24 hours and a WhatsApp contact throughout your stay.",
+ "plan.eyebrow":"Your trip","plan.title":"Tell us what you dream of",
+ "plan.lede":"Four quick steps, and we come back to you with a personal itinerary and quote, with no obligation.",
+ "c.email":"Email",
+ "s.1":"Destinations","s.2":"Dates","s.3":"Style","s.4":"Contact",
+ "f1.t":"Where would you like to go?","f1.q":"Choose one or more cities","f1.err":"Choose at least one city, or “Advise me”.","f1.advise":"Advise me",
+ "f2.t":"When, and who's coming?","f2.date":"Arrival date","f2.dur":"Length of stay","f2.adults":"Adults","f2.kids":"Children","f2.flex":"Your dates are",
+ "dur.d1":"3 to 4 days","dur.d2":"5 to 7 days","dur.d3":"8 to 10 days","dur.d4":"More than 10 days",
+ "f3.t":"Your travel style","f3.budget":"Budget","f3.stay":"Accommodation","f3.int":"Interests",
+ "f4.t":"Your details","f4.name":"Full name","f4.country":"Country of residence","f4.phone":"Phone / WhatsApp","f4.email":"Email","f4.msg":"Anything else? (occasion, diet, mobility…)",
+ "f4.err":"Add your name, and a phone number or email.","f4.sum":"Summary","f4.wa":"Send on WhatsApp","f4.mail":"Send by email",
+ "sum.cities":"Cities","sum.when":"Arrival","sum.dur":"Length","sum.people":"Travellers","sum.budget":"Budget","sum.stay":"Stay","sum.int":"Interests","sum.none":"—",
+ "ppl":(a,k)=>`${a} adult${a>1?"s":""}${k?`, ${k} child${k>1?"ren":""}`:""}`,
+ "st.sending":"Sending…","st.ok":"Thank you! Your request has been sent. We'll reply within 24 hours.","st.fail":"The email could not be sent. Please use WhatsApp or write to "+EMAIL+".",
+ "nav.prev":"Back","nav.next":"Continue",
+ "wa.hello":"Hello Victoria Voyage, I'd like to plan a trip to Morocco.",
+ "foot":"Tailor-made travel in Morocco"
+},
+ar:{
+ "nav.dest":"الوجهات","nav.trips":"الرحلات","nav.why":"أسلوبنا","nav.contact":"خطط لرحلتك",
+ "cta.plan":"خطط لرحلتي","cta.explore":"اكتشف الوجهات",
+ "hero.eyebrow":"وكالة أسفار · المغرب",
+ "hero.title":"المغرب،<br><em>مدينةً بعد مدينة.</em>",
+ "hero.lede":"من طنجة إلى الصحراء، نصمم لك رحلات حسب الطلب عبر أجمل مدن المملكة. أنت تختار الإيقاع، ونحن نتكفل بالباقي.",
+ "hero.alt":"صومعة الكتبية في مراكش وجبال الأطلس المكسوة بالثلج في الخلفية",
+ "facts.cities":"مدن للاكتشاف","facts.langs":"لغات نتحدثها","facts.reply":"للرد عليك",
+ "dest.eyebrow":"الوجهات","dest.title":"ثماني مدن، ثمانية وجوه للمغرب",
+ "dest.lede":"لكل مدينة لونها وضوؤها وموسمها. اجمع بينها كما تشاء في رحلة واحدة.",
+ "trips.eyebrow":"رحلات مميزة","trips.title":"مسارات جاهزة للانطلاق",
+ "trips.lede":"أساس متين نكيّفه حسب تواريخك وميزانيتك ورغباتك.",
+ "trips.note":"أسعار تقريبية للشخص الواحد، على أساس شخصين، دون احتساب الرحلات الجوية الدولية.",
+ "trip.days":"أيام","trip.from":"ابتداءً من","trip.ask":"اطلب هذه الرحلة",
+ "why.eyebrow":"أسلوبنا","why.title":"بسيط، محلي، وباهتمام",
+ "why.1t":"رياضات مختارة","why.1p":"دور ضيافة زرناها واخترناها لهدوئها وحسن استقبالها.",
+ "why.2t":"حسب الطلب","why.2p":"لا برامج مفروضة: كل مسار يُبنى حولك.",
+ "why.3t":"نقل خاص","why.3p":"سائق وسيارة مكيفة طوال مدة الرحلة.",
+ "why.4t":"معك دائماً","why.4p":"رد خلال 24 ساعة وتواصل عبر واتساب طوال إقامتك.",
+ "plan.eyebrow":"رحلتك","plan.title":"أخبرنا بما تحلم به",
+ "plan.lede":"أربع خطوات سريعة، ثم نعود إليك بمسار وعرض سعر مخصص، دون أي التزام.",
+ "c.email":"البريد الإلكتروني",
+ "s.1":"الوجهات","s.2":"التواريخ","s.3":"الأسلوب","s.4":"التواصل",
+ "f1.t":"إلى أين تود الذهاب؟","f1.q":"اختر مدينة أو أكثر","f1.err":"اختر مدينة واحدة على الأقل، أو «انصحوني».","f1.advise":"انصحوني",
+ "f2.t":"متى ومع من؟","f2.date":"تاريخ الوصول","f2.dur":"مدة الإقامة","f2.adults":"البالغون","f2.kids":"الأطفال","f2.flex":"تواريخك",
+ "dur.d1":"3 إلى 4 أيام","dur.d2":"5 إلى 7 أيام","dur.d3":"8 إلى 10 أيام","dur.d4":"أكثر من 10 أيام",
+ "f3.t":"أسلوب سفرك","f3.budget":"الميزانية","f3.stay":"الإقامة","f3.int":"اهتماماتك",
+ "f4.t":"معلومات التواصل","f4.name":"الاسم الكامل","f4.country":"بلد الإقامة","f4.phone":"الهاتف / واتساب","f4.email":"البريد الإلكتروني","f4.msg":"ملاحظة إضافية؟ (مناسبة، نظام غذائي، صعوبة في الحركة…)",
+ "f4.err":"أدخل اسمك، ورقم هاتف أو بريداً إلكترونياً.","f4.sum":"ملخص الطلب","f4.wa":"إرسال عبر واتساب","f4.mail":"إرسال عبر البريد",
+ "sum.cities":"المدن","sum.when":"الوصول","sum.dur":"المدة","sum.people":"المسافرون","sum.budget":"الميزانية","sum.stay":"الإقامة","sum.int":"الاهتمامات","sum.none":"—",
+ "ppl":(a,k)=>`${a} بالغ${k?`، ${k} طفل`:""}`,
+ "st.sending":"جارٍ الإرسال…","st.ok":"شكراً! تم إرسال طلبك، وسنرد عليك خلال 24 ساعة.","st.fail":"تعذّر الإرسال عبر البريد. استعمل واتساب أو راسلنا على "+EMAIL+".",
+ "nav.prev":"رجوع","nav.next":"متابعة",
+ "wa.hello":"السلام عليكم Victoria Voyage، أرغب في تنظيم رحلة إلى المغرب.",
+ "foot":"رحلات حسب الطلب في المغرب"
+}};
+
+let lang = "fr";
+try{ const s = localStorage.getItem("vv-lang"); if(s && T[s]) lang = s; else { const n=(navigator.language||"").slice(0,2); if(T[n]) lang=n; } }catch(e){}
+const t = k => T[lang][k] ?? T.fr[k] ?? k;
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+
+function chip(group, value, label, type="checkbox", checked=false){
+  return `<label class="chip"><input type="${type}" name="${group}" value="${value}" ${checked?"checked":""}><span>${label}</span></label>`;
+}
+function renderChips(){
+  const keep = name => new Set($$(`input[name="${name}"]:checked`).map(i=>i.value));
+  const c = keep("cities"), f = keep("flex"), b = keep("budget"), s = keep("stay"), it = keep("interests");
+  $("#cityChips").innerHTML = CITIES.map(x=>chip("cities",x.k,x.n[lang],"checkbox",c.has(x.k))).join("") + chip("cities","advise",t("f1.advise"),"checkbox",c.has("advise"));
+  $("#flexChips").innerHTML = Object.entries(OPT.flex).map(([k,v])=>chip("flex",k,v[lang],"radio",f.size?f.has(k):k==="yes")).join("");
+  $("#budgetChips").innerHTML = Object.entries(OPT.budget).map(([k,v])=>chip("budget",k,v[lang],"radio",b.size?b.has(k):k==="mid")).join("");
+  $("#stayChips").innerHTML = Object.entries(OPT.stay).map(([k,v])=>chip("stay",k,v[lang],"radio",s.size?s.has(k):k==="riad")).join("");
+  $("#intChips").innerHTML = Object.entries(OPT.int).map(([k,v])=>chip("interests",k,v[lang],"checkbox",it.has(k))).join("");
+}
+function render(){
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang==="ar" ? "rtl" : "ltr";
+  $$("[data-i18n]").forEach(el=>{ el.textContent = t(el.dataset.i18n); });
+  $$("[data-i18n-html]").forEach(el=>{ el.innerHTML = t(el.dataset.i18nHtml); });
+  $$("[data-i18n-alt]").forEach(el=>{ el.alt = t(el.dataset.i18nAlt); });
+  $$(".langs button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.l===lang));
+  $("#cities").innerHTML = CITIES.map(c=>`
+    <article class="city">
+      <div class="arch"><img loading="lazy" src="${IMG(c.img)}" alt="${c.n[lang]}"></div>
+      <h3>${c.n[lang]}</h3>
+      <p>${c.d[lang]}</p>
+      <div class="meta"><span dir="ltr">${c.geo}</span><span>${c.s[lang]}</span></div>
+    </article>`).join("");
+  $("#trips").innerHTML = TRIPS.map(x=>`
+    <article class="trip">
+      <div class="arch"><img loading="lazy" src="${IMG(x.img)}" alt=""></div>
+      <div class="body">
+        <span class="days">${x.days} ${t("trip.days")}</span>
+        <h3>${x.n[lang]}</h3>
+        <p class="route">${x.r[lang]}</p>
+        <div class="foot">
+          <div class="price"><small>${t("trip.from")}</small><b dir="ltr">${x.price} MAD</b></div>
+          <button type="button" data-trip="${x.k}">${t("trip.ask")}</button>
+        </div>
+      </div>
+    </article>`).join("");
+  renderChips();
+  updateSummary();
+}
+
+/* language switch */
+$$(".langs button").forEach(b=>b.addEventListener("click",()=>{
+  lang = b.dataset.l; try{localStorage.setItem("vv-lang",lang)}catch(e){}
+  render();
+}));
+
+/* trip shortcuts */
+const TRIP_CITIES = {imperial:["casablanca","fes","marrakech"],sahara:["marrakech","aitbenhaddou","merzouga"],north:["tanger","chefchaouen"],coast:["casablanca","essaouira"]};
+let chosenTrip = null;
+document.addEventListener("click",e=>{
+  const b = e.target.closest("[data-trip]"); if(!b) return;
+  chosenTrip = b.dataset.trip;
+  const set = new Set(TRIP_CITIES[chosenTrip]);
+  $$('input[name="cities"]').forEach(i=>i.checked=set.has(i.value));
+  const tr = TRIPS.find(x=>x.k===chosenTrip);
+  $("#duration").value = tr.days<=4 ? "d1" : tr.days<=7 ? "d2" : "d3";
+  go(1); $("#planifier").scrollIntoView({behavior:"smooth"});
+});
+
+/* steppers */
+$$(".stepper").forEach(s=>s.addEventListener("click",e=>{
+  const b = e.target.closest("button"); if(!b) return;
+  const o = s.querySelector("output"); const min = s.dataset.field==="adults"?1:0;
+  o.value = o.textContent = Math.max(min, Math.min(20, (+o.textContent) + (+b.dataset.d)));
+  updateSummary();
+}));
+
+/* steps */
+let step = 1;
+function go(n){
+  step = n;
+  $$("fieldset[data-step]").forEach(f=>f.hidden = +f.dataset.step!==step);
+  $$("#steps li").forEach((li,i)=>{ li.className = i+1===step?"on":(i+1<step?"done":""); });
+  $("#prev").hidden = step===1;
+  $("#next").hidden = step===4;
+  if(step===4) updateSummary();
+}
+function vals(name){ return $$(`input[name="${name}"]:checked`).map(i=>i.value); }
+$("#next").addEventListener("click",()=>{
+  if(step===1 && !vals("cities").length){ $("#err1").hidden=false; return; }
+  $("#err1").hidden = true;
+  go(step+1);
+  $("#planner").scrollIntoView({behavior:"smooth",block:"start"});
+});
+$("#prev").addEventListener("click",()=>go(step-1));
+$("#planner").addEventListener("change",updateSummary);
+$("#planner").addEventListener("input",updateSummary);
+
+function data(){
+  const cityName = k => k==="advise" ? t("f1.advise") : (CITIES.find(c=>c.k===k)||{n:{}}).n[lang];
+  const date = $("#arrival").value;
+  const dur = $("#duration").selectedOptions[0]?.textContent || "";
+  const flex = vals("flex")[0];
+  return {
+    cities: vals("cities").map(cityName).join(", ") || t("sum.none"),
+    when: (date ? new Date(date+"T12:00").toLocaleDateString(lang==="ar"?"ar-MA":lang==="fr"?"fr-FR":"en-GB",{day:"numeric",month:"long",year:"numeric"}) : t("sum.none")) + (flex ? ` (${OPT.flex[flex][lang]})` : ""),
+    dur,
+    people: T[lang].ppl(+$("#adults").textContent, +$("#kids").textContent),
+    budget: (OPT.budget[vals("budget")[0]]||{})[lang] || t("sum.none"),
+    stay: (OPT.stay[vals("stay")[0]]||{})[lang] || t("sum.none"),
+    int: vals("interests").map(k=>OPT.int[k][lang]).join(", ") || t("sum.none"),
+    trip: chosenTrip ? TRIPS.find(x=>x.k===chosenTrip).n[lang] : "",
+    name: $("#fname").value.trim(), country: $("#country").value.trim(),
+    phone: $("#phone").value.trim(), email: $("#email").value.trim(), msg: $("#msg").value.trim()
+  };
+}
+function lines(d){
+  const L = [
+    [t("sum.cities"),d.cities],[t("sum.when"),d.when],[t("sum.dur"),d.dur],[t("sum.people"),d.people],
+    [t("sum.budget"),d.budget],[t("sum.stay"),d.stay],[t("sum.int"),d.int]];
+  if(d.trip) L.unshift([t("nav.trips"),d.trip]);
+  return L;
+}
+function esc(s){ return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+function updateSummary(){
+  if(!$("#summary")) return;
+  const d = data();
+  $("#summary").innerHTML = lines(d).map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("");
+  const msg = [t("wa.hello"), "", ...lines(d).map(([k,v])=>`• ${k} : ${v}`), "",
+    d.name && `${t("f4.name")} : ${d.name}`, d.country && `${t("f4.country")} : ${d.country}`,
+    d.phone && `${t("f4.phone")} : ${d.phone}`, d.email && `${t("f4.email")} : ${d.email}`, d.msg && `\n${d.msg}`].filter(Boolean).join("\n");
+  $("#sendWa").href = `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
+}
+function contactOk(){
+  const d = data(); const ok = d.name && (d.phone || d.email);
+  $("#err4").hidden = !!ok; return ok;
+}
+$("#sendWa").addEventListener("click",e=>{ if(!contactOk()) e.preventDefault(); });
+
+$("#planner").addEventListener("submit",async e=>{
+  e.preventDefault();
+  if(step!==4){ $("#next").click(); return; }
+  if(!contactOk() || $("#hp").value) return;
+  const st = $("#status"); st.hidden=false; st.textContent = t("st.sending");
+  const d = data();
+  const payload = {_subject:`Victoria Voyage — ${d.name}`, _template:"table", _captcha:"false"};
+  lines(d).forEach(([k,v])=>payload[k]=v);
+  Object.assign(payload,{[t("f4.name")]:d.name,[t("f4.country")]:d.country,[t("f4.phone")]:d.phone,[t("f4.email")]:d.email,Message:d.msg,Langue:lang});
+  if(d.email) payload._replyto = d.email;
+  try{
+    const r = await fetch(`https://formsubmit.co/ajax/${EMAIL}`,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(payload)});
+    if(!r.ok) throw 0;
+    st.textContent = t("st.ok");
+  }catch(err){ st.textContent = t("st.fail"); }
+});
+
+$("#yr").textContent = new Date().getFullYear();
+render(); go(1);
+})();
+</script>
